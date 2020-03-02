@@ -1,0 +1,50 @@
+#include <iostream>
+
+#include <fstream>
+
+#define Length 10
+
+using namespace std;
+
+
+
+int main()
+{
+
+
+    double count = 0, sum=0;
+    char Arr[Length];
+
+
+
+    char file_name[30];
+
+    cout << "File name: ";
+    cin >> file_name;
+
+    
+    fstream File;
+
+    File.open(file_name,ios::in);
+
+    if (!File) cout << "file is not open.\n";
+
+    else {
+
+         while (!File.eof()) {
+
+	       File.getline(Arr,Length,',');
+
+	       count=atof(Arr);
+
+               sum+=count;
+
+	 }
+
+    cout << "File sum is: " << sum << endl;
+
+    File.close();
+
+    }
+
+}
